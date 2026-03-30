@@ -1,5 +1,9 @@
-import os
+'''
+코드 실행
+python main.py --model resnet18 --epochs 10
+'''
 
+import os
 import torch
 import torch.nn as nn
 import torch.optim as optim

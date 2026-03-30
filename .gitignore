@@ -1,2 +1,7 @@
 CIFAR-10/data/
+MNIST/data/
+results/
+__pycache__/
+*/__pycache__/
+*.pyc
 *.pth

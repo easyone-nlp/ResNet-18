@@ -1,4 +1,10 @@
 ## 코드 출처 : https://velog.io/@tolerance0718/PyTorch-%EA%B8%B0%EB%B0%98-ResNet-%EB%AA%A8%EB%8D%B8-%EA%B5%AC%ED%98%84-%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0
+
+'''
+코드 실행
+python main.py --model resnet18 --dataset cifar10 --epochs 30
+'''
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
