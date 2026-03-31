@@ -7,10 +7,8 @@ ResNet-18 training and adversarial attack scripts for MNIST and CIFAR-10.
 ```bash
 git clone https://github.com/easyone-nlp/ResNet-18.git
 cd ResNet-18
+pip install -r requirements.txt
 ```
-
-If you already have a Python environment for PyTorch, activate it before running the scripts.
-This project uses `torch`, `torchvision`, and `matplotlib`.
 
 ## Project Structure
 
@@ -133,8 +131,36 @@ Examples:
 - `results/cifar10_targeted_pgd.json`
 - `results/cifar10_targeted_pgd.png`
 
+## Result Images
+
+### FGSM
+
+MNIST targeted:
+
+![MNIST Targeted FGSM](results/mnist_targeted_fgsm.png)
+
+CIFAR-10 untargeted:
+
+![CIFAR-10 Untargeted FGSM](results/cifar10_untargeted_fgsm.png)
+
+### PGD
+
+MNIST targeted:
+
+![MNIST Targeted PGD](results/mnist_targeted_pgd.png)
+
+CIFAR-10 untargeted:
+
+![CIFAR-10 Untargeted PGD](results/cifar10_untargeted_pgd.png)
+
+
 ## Notes
 
 - Targeted attacks require `--target_class`.
 - `run_fgsm.py` and `run_pgd.py` load the trained checkpoint from each dataset folder.
 - `test.py` uses a non-interactive matplotlib backend for subprocess runs so the full pipeline can run in server environments.
+
+## References
+
+- FGSM attack reference: https://github.com/ymerkli/fgsm-attack/tree/master
+- ResNet implementation review reference: https://velog.io/@tolerance0718/PyTorch-%EA%B8%B0%EB%B0%98-ResNet-%EB%AA%A8%EB%8D%B8-%EA%B5%AC%ED%98%84-%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0

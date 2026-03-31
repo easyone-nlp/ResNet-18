@@ -1,0 +1,26 @@
+{
+  "0.05": {
+    "evaluated": 102,
+    "clean_correct": 100,
+    "successful_attacks": 1,
+    "success_rate": 0.01
+  },
+  "0.1": {
+    "evaluated": 102,
+    "clean_correct": 100,
+    "successful_attacks": 9,
+    "success_rate": 0.09
+  },
+  "0.2": {
+    "evaluated": 102,
+    "clean_correct": 100,
+    "successful_attacks": 56,
+    "success_rate": 0.56
+  },
+  "0.3": {
+    "evaluated": 102,
+    "clean_correct": 100,
+    "successful_attacks": 92,
+    "success_rate": 0.92
+  }
+}

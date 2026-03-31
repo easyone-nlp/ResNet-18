@@ -1,0 +1,38 @@
+{
+  "0.05": {
+    "evaluated": 102,
+    "clean_correct": 100,
+    "successful_attacks": 1,
+    "success_rate": 0.01,
+    "num_steps": 40,
+    "step_size": 0.01,
+    "random_start": true
+  },
+  "0.1": {
+    "evaluated": 102,
+    "clean_correct": 100,
+    "successful_attacks": 15,
+    "success_rate": 0.15,
+    "num_steps": 40,
+    "step_size": 0.01,
+    "random_start": true
+  },
+  "0.2": {
+    "evaluated": 102,
+    "clean_correct": 100,
+    "successful_attacks": 100,
+    "success_rate": 1.0,
+    "num_steps": 40,
+    "step_size": 0.01,
+    "random_start": true
+  },
+  "0.3": {
+    "evaluated": 102,
+    "clean_correct": 100,
+    "successful_attacks": 100,
+    "success_rate": 1.0,
+    "num_steps": 40,
+    "step_size": 0.01,
+    "random_start": true
+  }
+}

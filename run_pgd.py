@@ -87,6 +87,7 @@ def run_attack(
     batch_size: int,
     num_steps: int,
     step_size: float,
+    random_start: bool,
 ):
     dataloader, model_dir, clamp_min, clamp_max = build_dataloader(dataset_name, num_samples, batch_size)
     model = load_model(model_dir=model_dir)
@@ -105,6 +106,7 @@ def run_attack(
         clamp_min=clamp_min,
         clamp_max=clamp_max,
         max_samples=num_samples,
+        random_start=random_start,
     )
     results = attack.run()
 
@@ -132,6 +134,7 @@ def main():
     parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--num_steps", type=int, default=10)
     parser.add_argument("--step_size", type=float, default=0.01)
+    parser.add_argument("--random_start", action="store_true", help="Start PGD from a random point inside the epsilon-ball.")
     args = parser.parse_args()
 
     run_attack(
@@ -143,6 +146,7 @@ def main():
         batch_size=args.batch_size,
         num_steps=args.num_steps,
         step_size=args.step_size,
+        random_start=args.random_start,
     )
 
 

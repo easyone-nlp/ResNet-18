@@ -18,6 +18,7 @@ class PGDAttack:
         clamp_min=None,
         clamp_max=None,
         max_samples=100,
+        random_start=False,
     ):
         self.model = model
         self.epsilons = epsilons
@@ -27,6 +28,7 @@ class PGDAttack:
         self.device = device
         self.target = target
         self.max_samples = max_samples
+        self.random_start = random_start
         self.adv_examples = {}
         self.results = {}
 
@@ -54,10 +56,17 @@ class PGDAttack:
             projected = torch.max(torch.min(projected, clamp_max), clamp_min)
         return projected
 
+    def _initialize_perturbed(self, original, eps):
+        perturbed = original.clone()
+        if self.random_start:
+            random_delta = torch.empty_like(original).uniform_(-eps, eps)
+            perturbed = self._project(original=original, perturbed=original + random_delta, eps=eps)
+        return perturbed.detach()
+
     def _pgd(self, inputs, labels, eps):
         criterion = nn.CrossEntropyLoss()
         original = inputs.detach()
-        perturbed = original.clone()
+        perturbed = self._initialize_perturbed(original=original, eps=eps)
 
         for _ in range(self.num_steps):
             perturbed.requires_grad_(True)
@@ -164,6 +173,7 @@ class PGDAttack:
                 "success_rate": success_rate,
                 "num_steps": self.num_steps,
                 "step_size": self.step_size,
+                "random_start": self.random_start,
             }
             print(
                 f"Epsilon: {eps_real}\t"
